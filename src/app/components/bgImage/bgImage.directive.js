@@ -9,26 +9,36 @@
       restrict: 'A', //E = element, A = attribute, C = class, M = comment
       link: function($scope, element, attrs) {
         function init() {
-          getBgImage.call($scope);
+          getBgImage.call(element);
         }
 
         function getBgImage() {
+          var self = this;
           BgImage.getBgImage()
             .then(function(res) {
               if (res.urls) {
-                this.css({
-                    'background-image': 'url(' + res.urls.full +')',
-                    'background-size' : 'cover'
+                self.css({
+                    'background': 'url(' + res.urls.regular +') no-repeat center center fixed',
+                    '-webkit-background-size': 'cover',
+                    '-moz-background-size': 'cover',
+                    '-o-background-size': 'cover',
+                    'background-size': 'cover'
                 })
               } else if(res.url){
-                this.css({
-                    'background-image': 'url(' + res.url +')',
-                    'background-size' : 'cover'
+                self.css({
+                  'background': 'url(' + res.url +') no-repeat center center fixed',
+                  '-webkit-background-size': 'cover',
+                  '-moz-background-size': 'cover',
+                  '-o-background-size': 'cover',
+                  'background-size': 'cover'
                 })
               } else {
-                this.css({
-                    'background-image': 'url(' + res +')',
-                    'background-size' : 'cover'
+                self.css({
+                  'background': 'url(' + res +') no-repeat center center fixed',
+                  '-webkit-background-size': 'cover',
+                  '-moz-background-size': 'cover',
+                  '-o-background-size': 'cover',
+                  'background-size': 'cover'
                 })
               }
             })

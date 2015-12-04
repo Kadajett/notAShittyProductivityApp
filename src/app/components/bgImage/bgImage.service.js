@@ -34,10 +34,7 @@
 
       $http({
           method: 'GET',
-          url: 'http://www.splashbase.co/api/v1/images/random',
-          headers: {
-            'Authentication': 'Client-ID ' + Auth.tokens.unsplashAuth
-          }
+          url: 'http://localhost:3000/media/images/random'
         })
         .success(function(res){
           defer.resolve(res);
