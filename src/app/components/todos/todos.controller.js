@@ -2,9 +2,10 @@
   'use strict';
 
   angular.module('notAshittyProductivityApp')
-    .controller('TodosPageCtrl', todosCtrl);
+    .controller('TodosPanelCtrl', todosCtrl);
 
-    function todosCtrl($scope){
-
+    function todosCtrl($scope, Todos){
+      var tp = this;
+      tp.todoList = Todos.getTodos();
     }
 }());

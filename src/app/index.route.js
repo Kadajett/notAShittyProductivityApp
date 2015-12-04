@@ -9,15 +9,19 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        // url: '/',
+        // templateUrl: 'app/main/main.html',
+        // controller: 'MainController',
+        // controllerAs: 'main'
+        //
+        views: {
+          "": {},
+          "todosPanel"
+        }
       })
-      .state('todosPage@home', {
-        url: '/todos',
-        templateUrl: 'app/todos/todosPage.html',
-        controller: 'TodosPageCtrl',
+      .state('home.todosPanel', {
+        templateUrl: 'app/todos/todosPanel.html',
+        controller: 'TodosPanelCtrl',
         controllerAs: 'tp'
       });
 
